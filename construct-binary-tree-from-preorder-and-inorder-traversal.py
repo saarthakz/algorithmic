@@ -1,3 +1,13 @@
+"""
+You are given two integer arrays preorder and inorder.
+
+    preorder is the preorder traversal of a binary tree
+    inorder is the inorder traversal of the same tree
+    Both arrays are of the same size and consist of unique values.
+
+Rebuild the binary tree from the preorder and inorder traversals and return its root.
+"""
+
 # Definition for a binary tree node.
 from typing import List, Optional
 

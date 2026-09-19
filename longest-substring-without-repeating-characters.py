@@ -1,3 +1,9 @@
+"""
+Given a string s, find the length of the longest substring without duplicate characters.
+
+A substring is a contiguous sequence of characters within a string."""
+
+
 class Solution:
     def lengthOfLongestSubstring(self, st: str) -> int:
         left = 0

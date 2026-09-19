@@ -1,4 +1,9 @@
+"""
+Given the head of a linked list and an integer n, remove the nth node from the end of the list and return its head.
+"""
+
 from typing import Optional
+
 
 # Definition for singly-linked list.
 class ListNode:

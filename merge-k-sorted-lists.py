@@ -1,3 +1,9 @@
+"""
+You are given an array of k linked lists lists, where each list is sorted in ascending order.
+
+Return the sorted linked list that is the result of merging all of the individual linked lists.
+"""
+
 # Definition for singly-linked list.
 from typing import List, Optional
 

@@ -1,3 +1,9 @@
+"""
+Given the roots of two binary trees p and q, return true if the trees are equivalent, otherwise return false.
+
+Two binary trees are considered equivalent if they share the exact same structure and the nodes have the same values.
+"""
+
 # Definition for a binary tree node.
 from typing import Optional
 

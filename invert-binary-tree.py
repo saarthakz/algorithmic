@@ -1,3 +1,7 @@
+"""
+You are given the root of a binary tree root. Invert the binary tree and return its root.
+"""
+
 # Definition for a binary tree node.
 from typing import Optional
 
