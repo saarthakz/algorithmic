@@ -25,8 +25,6 @@ class Solution:
             else:
                 adj_list[second] = set([first])
 
-        print(adj_list)
-
         visited = set()
         ctr = 0
 

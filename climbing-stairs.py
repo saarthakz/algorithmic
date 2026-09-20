@@ -21,6 +21,3 @@ class Solution:
         # We can take either 1 step or 2 steps
         mem_map[n] = self.climbStairs(n - 1) + self.climbStairs(n - 2)
         return mem_map[n]
-
-
-print(Solution().climbStairs(38))
