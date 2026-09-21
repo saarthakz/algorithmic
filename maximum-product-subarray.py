@@ -21,33 +21,50 @@ class Solution:
         if len(nums) == 1:
             return nums[0]
 
+        max_product = nums[0]
+
         # Ranges of all the subarrays with zeroes in it
         # Splitting the problem essentially
         # [Start, end) as in Start is inclusive but end is exclusive
         ranges: List[Tuple[int, int]] = []
         start = 0
-        for idx in range(len(nums)):
+        idx = 0
+
+        zero_flag = False
+
+        while idx < len(nums):
             if nums[idx] == 0:
+                zero_flag = True
                 ranges.append((start, idx))
                 start = idx + 1
+            idx += 1
 
-        max_product = 0
+        ranges.append((start, idx))
 
         # Now, we operate on each "no zero" range
         for start, end in ranges:
             product = 1
+
+            # Left partitions
             for idx in range(start, end):
                 product *= nums[idx]
-
-            # If the product of all elements in the current "no zero" range is positive
-            # We can check for the max product condition early and break out
-            if product > 0:
                 max_product = max(max_product, product)
-                break
 
-            # Since it is negative, there is an odd count of negatives in the range,
-            # Hence we need to figure out which single negative number would paritition the range to get the max partition product
+            product = 1
+            # Right partitions
+            for idx in range(end - 1, start - 1, -1):
+                product *= nums[idx]
+                max_product = max(max_product, product)
 
-            curr_product = 1
-            for idx in range(start, end):
-                curr_product *= nums[idx]
+        # A protection against the edge of case of zeroes and negative numbers only
+        if zero_flag:
+            max_product = max(max_product, 0)
+
+        return max_product
+
+
+nums = [2, 4, -3, 5]
+nums = [-3, 0, -2]
+nums = [0, 2]
+
+print(Solution().maxProduct(nums))
