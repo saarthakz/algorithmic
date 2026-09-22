@@ -58,8 +58,3 @@ class Solution:
         mp[curr_idx] = result
 
         return result
-
-
-st = "06"
-
-print(Solution().numDecodings(st))

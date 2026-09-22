@@ -61,10 +61,3 @@ class Solution:
             max_product = max(max_product, 0)
 
         return max_product
-
-
-nums = [2, 4, -3, 5]
-nums = [-3, 0, -2]
-nums = [0, 2]
-
-print(Solution().maxProduct(nums))
