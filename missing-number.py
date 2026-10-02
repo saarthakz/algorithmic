@@ -14,11 +14,3 @@ class Solution:
         expected_sum = (n * (n + 1)) // 2
 
         return expected_sum - num_sum
-
-
-nums = [0, 1]
-nums = [1, 0]
-
-val = Solution().missingNumber(nums)
-
-print(val)

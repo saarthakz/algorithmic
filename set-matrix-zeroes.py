@@ -30,8 +30,3 @@ class Solution:
         for col in zero_cols:
             for row in range(rows):
                 matrix[row][col] = 0
-
-
-matrix = [[1, 2, 3], [4, 0, 5], [6, 7, 8]]
-
-print(Solution().setZeroes(matrix=matrix))

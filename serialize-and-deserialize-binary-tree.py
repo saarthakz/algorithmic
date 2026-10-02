@@ -23,7 +23,6 @@ class Codec:
     def serialize(self, root: Optional[TreeNode]) -> str:
         self.str_arr: List[str] = []
         self.serialize_helper(root)
-        print(self.str_arr)
         return ",".join(self.str_arr)
 
     def serialize_helper(self, node: Optional[TreeNode]):

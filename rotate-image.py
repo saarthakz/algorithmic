@@ -31,10 +31,3 @@ class Solution:
                 )
                 matrix[dim - 1 - _idx][idx], temp = temp, matrix[dim - 1 - _idx][idx]
                 matrix[idx][_idx] = temp
-
-
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-Solution().rotate(matrix)
-
-print(matrix)

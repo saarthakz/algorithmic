@@ -33,6 +33,3 @@ class Solution:
         for idx, cnt in enumerate(cnt_arr):
             ext[idx] = 1 + cnt_arr[idx]
         cnt_arr.extend(ext)
-
-
-print(Solution().countBits(4))

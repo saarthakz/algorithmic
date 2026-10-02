@@ -29,8 +29,3 @@ class Solution:
                 intervals[idx][1],
                 removed_interval[1],
             )
-
-
-intervals = [[1, 2], [2, 3]]
-
-print(Solution().merge(intervals))
