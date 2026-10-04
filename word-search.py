@@ -30,6 +30,7 @@ class Solution:
         if len(word) == 0:
             return True
 
+        # Prevent revisiting the same cell within current path
         if board_indices in visited:
             return False
 
@@ -43,8 +44,10 @@ class Solution:
         if self.board[row][col] != word[0]:
             return False
 
+        # Mark current cell as visited in the path
         visited.add(board_indices)
 
+        # Recursively search all 4 adjacent neighbors (down, up, right, left) for next char
         return (
             self.helper(word[1:], (row + 1, col), set(visited))
             or self.helper(word[1:], (row - 1, col), set(visited))

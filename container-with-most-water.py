@@ -15,15 +15,17 @@ class Solution:
         right = len(heights) - 1
         maxArea = 0
 
+        # Narrow the window from both ends, calculating area at each step
         while left <= right:
-
             width = right - left
+            # Container height is constrained by the shorter bar
             bottleneck_height = min(heights[left], heights[right])
             area = width * bottleneck_height
 
             if area > maxArea:
                 maxArea = area
 
+            # Move the pointer with the shorter bar inward to seek a taller boundary
             if heights[left] == bottleneck_height:
                 left += 1
             else:

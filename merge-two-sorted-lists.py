@@ -28,6 +28,7 @@ class Solution:
         if not second:
             return first
 
+        # Collect nodes in non-decreasing order by comparing values
         while first is not None and second is not None:
             if first.val < second.val:
                 combined.append(first)
@@ -36,6 +37,7 @@ class Solution:
                 combined.append(second)
                 second = second.next
 
+        # Append remaining nodes from either list
         while first is not None:
             combined.append(first)
             first = first.next
@@ -44,6 +46,7 @@ class Solution:
             combined.append(second)
             second = second.next
 
+        # Re-wire pointers sequentially according to sorted order
         for idx in range(len(combined) - 1):
             node = combined[idx]
             next_node = combined[idx + 1]

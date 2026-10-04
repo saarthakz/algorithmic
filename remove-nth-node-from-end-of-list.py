@@ -24,13 +24,16 @@ class Solution:
         if listLen == 1:
             return None
 
+        # Convert nth from end to 0-based index from start
         removalIdx = listLen - n
 
+        # If removing the head node, advance head and unlink
         if removalIdx == 0:
             newHead = head.next
             head.next = None
             return newHead
 
+        # Traverse to the node immediately before the node to be removed
         curr = head
         idx = 0
         while idx < removalIdx - 1:

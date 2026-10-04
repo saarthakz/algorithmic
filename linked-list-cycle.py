@@ -22,11 +22,14 @@ class Solution:
 
         curr = head
 
+        # Traverse the linked list tracking visited node references in a hash set
         while curr is not None:
+            # If current node address has been visited before, a cycle exists
             if curr in visitedSet:
                 return True
 
             visitedSet.add(curr)
             curr = curr.next
 
+        # Reached end of list (null), no cycle present
         return False

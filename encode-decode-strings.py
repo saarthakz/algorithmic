@@ -8,11 +8,15 @@ from typing import List
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
+        # Sentinel value for empty list
         if not len(strs):
             return "---"
+        # Join strings using a delimiter that separates tokens
         return "#*#".join(strs)
 
     def decode(self, s: str) -> List[str]:
+        # Handle sentinel value for empty list
         if s == "---":
             return []
+        # Split on the delimiter to recover original strings
         return s.split("#*#")

@@ -18,15 +18,18 @@ class Solution:
         zero_rows = set()
         zero_cols = set()
 
+        # Pass 1: Identify all rows and columns that contain at least one zero
         for row in range(rows):
             for col in range(cols):
                 if matrix[row][col] == 0:
                     zero_rows.add(row)
                     zero_cols.add(col)
 
+        # Pass 2: Overwrite identified rows with zeroes
         for row in zero_rows:
             matrix[row] = [0] * cols
 
+        # Overwrite identified columns with zeroes
         for col in zero_cols:
             for row in range(rows):
                 matrix[row][col] = 0

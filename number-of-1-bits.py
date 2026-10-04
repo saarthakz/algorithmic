@@ -8,6 +8,7 @@ You may assume n is a non-negative integer which fits within 32-bits.
 class Solution:
     def hammingWeight(self, n: int) -> int:
         cnt = 0
+        # Repeatedly extract least significant bit (n % 2) and right shift (n // 2)
         while n:
             cnt += n % 2
             n = n // 2

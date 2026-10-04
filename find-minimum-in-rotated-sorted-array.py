@@ -19,17 +19,21 @@ class Solution:
         left = 0
         right = len(nums) - 1
 
+        # Binary search for the rotation inflection point (where array drops)
         while nums[left] > nums[right]:
             mid = (left + right) // 2
 
+            # Two adjacent elements where left > right means right is the minimum
             if right == left + 1:
                 left = right
                 break
 
+            # If mid >= left, the left half is normally sorted, minimum is in right half
             if nums[mid] > nums[left]:
                 left = mid
                 continue
 
+            # If mid < right, the drop occurs between left and mid
             if nums[mid] < nums[right]:
                 right = mid
                 continue

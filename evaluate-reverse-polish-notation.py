@@ -19,10 +19,12 @@ class Solution:
         operator = set(["+", "-", "*", "/"])
 
         for token in tokens:
+            # Pop the top two operands when encountering an operator (second operand is on top)
             if token in operator:
                 second = st.pop()
                 first = st.pop()
                 token = self.eval_expr(first, second, token)
+            # Push operand or intermediate evaluation result onto stack
             st.append(token)
 
         return float(st.pop()).__round__()

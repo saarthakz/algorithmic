@@ -12,6 +12,7 @@ class Solution:
         curr_sum = 0
         max_sum = -1 * int(1e5)
 
+        # Kadane's algorithm: discard running sum if it drops below zero
         for num in nums:
             if curr_sum < 0:
                 curr_sum = 0

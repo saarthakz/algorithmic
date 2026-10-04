@@ -14,6 +14,7 @@ class Solution:
         if not nums:
             return 0
 
+        # dic maps each number to [countAhead, visited] for memoized sequence traversal
         dic = {}
         for num in nums:
             if num not in dic:

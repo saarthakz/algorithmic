@@ -17,10 +17,12 @@ class Solution:
         curr = head
         prev = None
 
+        # Traverse list and reverse each node's next pointer
         while curr is not None:
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+            nxt = curr.next  # Save next node before overwriting pointer
+            curr.next = prev  # Reverse pointer direction
+            prev = curr  # Advance prev to current node
+            curr = nxt  # Advance curr to next node
 
+        # prev becomes the new head of the reversed list
         return prev

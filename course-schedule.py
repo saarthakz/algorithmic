@@ -26,11 +26,14 @@ class Solution:
             if first not in adj_list:
                 adj_list[first] = set()
 
+        # track: nodes in current DFS branch to detect directed cycles
+        # visited: nodes already verified cycle-free across all paths
         track = set()
         visited = set()
         nodes = list(adj_list.keys())
         flag = False
 
+        # If any prerequisite chain forms a cycle, courses cannot all be finished
         for node in nodes:
             if node in visited:
                 continue

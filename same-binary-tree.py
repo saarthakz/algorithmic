@@ -17,18 +17,22 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, first: Optional[TreeNode], second: Optional[TreeNode]) -> bool:
+        # Both nodes are None: structurally matching base case
         if first is None and second is None:
             return True
 
+        # One node is None and the other is not: structural mismatch
         if (first and not second) or (second and not first):
             return False
 
         assert first is not None
         assert second is not None
 
+        # Node values must match
         if first.val != second.val:
             return False
 
+        # Recursively verify both left and right subtrees match
         return self.isSameTree(first.left, second.left) and self.isSameTree(
             first.right, second.right
         )

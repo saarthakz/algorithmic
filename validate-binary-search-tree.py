@@ -59,6 +59,7 @@ class Solution:
         if is_right_subtree_valid == False:
             return False
 
+        # BST invariant: max in left subtree must be < node.val, and min in right subtree must be > node.val
         if (node.left and self.getTreeMax(node.left) >= node.val) or (
             node.right and self.getTreeMin(node.right) <= node.val
         ):

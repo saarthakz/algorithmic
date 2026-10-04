@@ -19,7 +19,7 @@ class TreeNode:
 
 class Codec:
 
-    # Encodes a tree to a single string.
+    # Encodes a tree to a single string using pre-order traversal with 'N' sentinel
     def serialize(self, root: Optional[TreeNode]) -> str:
         self.str_arr: List[str] = []
         self.serialize_helper(root)
@@ -30,11 +30,12 @@ class Codec:
             self.str_arr.append("N")
             return
 
+        # Record root value, then recursively serialize left and right subtrees
         self.str_arr.append(str(node.val))
         self.serialize_helper(node.left)
         self.serialize_helper(node.right)
 
-    # Decodes your encoded data to tree.
+    # Decodes encoded comma-separated string back to tree via pre-order reconstruction
     def deserialize(self, data: str) -> Optional[TreeNode]:
         self.vals = data.split(",")
         self.idx = 0
@@ -44,10 +45,12 @@ class Codec:
         if self.idx >= len(self.vals):
             return None
 
+        # 'N' marks null child pointer
         if self.vals[self.idx] == "N":
             self.idx += 1
             return None
 
+        # Reconstruct node and recursively build left and right subtrees
         node = TreeNode(int(self.vals[self.idx]))
         self.idx += 1
         node.left = self.deserialize_helper()

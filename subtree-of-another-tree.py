@@ -35,11 +35,13 @@ class Solution:
         )
 
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        # An empty tree cannot contain any non-empty subtree
         if root is None:
             return False
 
+        # Check if identical starting from current node, or recursively in left/right children
+        self_check = self.isSameTree(root, subRoot)
         left_child_check = self.isSubtree(root.left, subRoot)
         right_child_check = self.isSubtree(root.right, subRoot)
-        self_check = self.isSameTree(root, subRoot)
 
         return left_child_check or right_child_check or self_check

@@ -15,15 +15,18 @@ class MinStack:
 
     def __init__(self):
         self.stack = []
+        # min_stack tracks the minimum element encountered up to each height
         self.min_stack = []
 
     def push(self, val: int) -> None:
         self.stack.append(val)
+        # Determine running minimum and push to min_stack to keep sizes synchronized
         curr_min = self.min_stack[-1] if len(self.min_stack) else val
         curr_min = min(curr_min, val)
         self.min_stack.append(curr_min)
 
     def pop(self) -> None:
+        # Pop from both stacks to maintain 1-to-1 minimum mapping
         self.stack.pop()
         self.min_stack.pop()
 
@@ -31,4 +34,5 @@ class MinStack:
         return self.stack[-1]
 
     def getMin(self) -> int:
+        # Top of min_stack always holds the current minimum in O(1) time
         return self.min_stack[-1]

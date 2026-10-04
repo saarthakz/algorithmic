@@ -19,9 +19,11 @@ class Solution:
         def sort_key(interval: Interval):
             return interval.end
 
+        # Sort meetings by end times to check chronological ordering
         intervals = sorted(intervals, key=sort_key)
 
         prev_end = float("-inf")
+        # If any meeting starts before the prior meeting completes, there is a conflict
         for interval in intervals:
             if interval.start < prev_end:
                 return False

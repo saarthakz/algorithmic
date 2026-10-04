@@ -28,9 +28,11 @@ class Solution:
         visited = set()
         ctr = 0
 
+        # Isolated nodes without any edges form their own individual component
         node_in_edge_cnt = len(adj_list.keys())
         lone_nodes = n - node_in_edge_cnt
 
+        # Explore each connected component using DFS
         for node in adj_list.keys():
             if node not in visited:
                 ctr += 1

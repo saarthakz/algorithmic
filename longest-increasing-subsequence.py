@@ -26,10 +26,12 @@ class Solution:
         if start in mp:
             return mp[start]
 
+        # Identify all indices to the right with strictly greater values
         for idx in range(start, len(nums)):
             if nums[idx] > nums[start]:
                 next_starts.append(idx)
 
+        # Recursively explore branches and take the maximum subsequence length
         for next_start in next_starts:
             cnt = max(cnt, 1 + self.helper(nums=nums, start=next_start, mp=mp))
 

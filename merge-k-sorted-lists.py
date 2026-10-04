@@ -26,16 +26,17 @@ class Solution:
         return self.helper(lists)
 
     def helper(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-
         length = len(lists)
 
-        # Base case
+        # Base case: a single list is already sorted
         if length == 1:
             return lists[0]
 
+        # Divide lists into two halves and recursively merge them
         l1 = self.helper(lists[0 : length // 2])
         l2 = self.helper(lists[length // 2 : length])
 
+        # Conquer: merge the two sorted halves
         return self.mergeTwoLists(l1, l2)
 
     def mergeTwoLists(self, first: Optional[ListNode], second: Optional[ListNode]):

@@ -26,11 +26,13 @@ class Solution:
         if start in mp:
             return mp[start]
 
+        # Find all valid word prefixes starting at `start`
         next_starts = []
         for idx in range(start, len(st)):
             if st[start:idx] in words_dict:
                 next_starts.append(idx)
 
+        # Recursively verify whether remainder of string can be formed from dictionary words
         flag = False
         for next_start in next_starts:
             flag = flag or self.helper(

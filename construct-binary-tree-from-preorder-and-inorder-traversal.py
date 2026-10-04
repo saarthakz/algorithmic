@@ -22,11 +22,11 @@ class TreeNode:
 class Solution:
 
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        # First element of preorder traversal is the root
         root_val = preorder[0]
         root_node = TreeNode(root_val)
 
-        # Find the index in 'inorder'
-
+        # In inorder traversal, elements left of root_val belong to left subtree, right belong to right subtree
         root_val_idx = inorder.index(root_val)
         root_node.left = self.buildSubTree(inorder[:root_val_idx], preorder)
 

@@ -25,6 +25,7 @@ class Solution:
         if not node:
             return
 
+        # In-order traversal (left, root, right) of a BST visits nodes in strictly ascending order
         self.inOrder(node.left, arr)
         arr.append(node.val)
         self.inOrder(node.right, arr)
@@ -32,4 +33,5 @@ class Solution:
     def kthSmallest(self, root: TreeNode, k: int) -> int:
         arr = []
         self.inOrder(root, arr)
+        # Retrieve the kth smallest value using 1-based index (k - 1)
         return arr[k - 1]

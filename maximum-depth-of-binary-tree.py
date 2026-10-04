@@ -19,9 +19,11 @@ class TreeNode:
 class Solution:
 
     def maxDepth(self, root: Optional[TreeNode], curr_depth: int = 0):
+        # Base case: reached beyond leaf node
         if not root:
             return curr_depth
 
+        # Return maximum depth explored through left and right subtrees
         return max(
             self.maxDepth(root.left, curr_depth + 1),
             self.maxDepth(root.right, curr_depth + 1),

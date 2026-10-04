@@ -11,6 +11,8 @@ class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
         num_sum = sum(nums)
+        # Expected arithmetic sum of numbers from 0 to n: n * (n + 1) // 2
         expected_sum = (n * (n + 1)) // 2
 
+        # Difference between expected sum and actual sum is the missing number
         return expected_sum - num_sum

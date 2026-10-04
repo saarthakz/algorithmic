@@ -30,7 +30,9 @@ class Solution:
         if node is None:
             return None
 
+        # Step 1: Traverse the original graph using BFS to construct an adjacency list
         adj_list = self._adj_list_from_graph(start_node=node)
+        # Step 2: Instantiate cloned Node instances and recreate all neighbor connections
         graph_node_ref = self._graph_from_adj_list(adj_list)
 
         return graph_node_ref[node.val]

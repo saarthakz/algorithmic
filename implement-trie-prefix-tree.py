@@ -30,17 +30,19 @@ class PrefixTree:
 
         self.st.add(word)
         root = self.root
+        # Traverse or create node branches for each character
         for char in word:
             if char not in root.children:
                 root.children[char] = TrieNode()
             root = root.children.get(char)
-        root.end = True
+        root.end = True  # Mark terminal node of inserted word
 
     def search(self, word: str) -> bool:
         return word in self.st
 
     def startsWith(self, prefix: str) -> bool:
         root = self.root
+        # Follow prefix character path; fail if any prefix branch does not exist
         for char in prefix:
             if char not in root.children:
                 return False
