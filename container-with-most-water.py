@@ -18,13 +18,13 @@ class Solution:
         while left <= right:
 
             width = right - left
-            height = min(heights[left], heights[right])
-            area = width * height
+            bottleneck_height = min(heights[left], heights[right])
+            area = width * bottleneck_height
 
             if area > maxArea:
                 maxArea = area
 
-            if heights[left] == height:
+            if heights[left] == bottleneck_height:
                 left += 1
             else:
                 right -= 1
