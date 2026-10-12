@@ -12,18 +12,18 @@ Implement the TimeMap class:
 from typing import List, Dict, Tuple
 import bisect
 
+
 class TimeMap:
 
     def __init__(self):
-        # For any given key, 
+        # For any given key,
         # We will store a sorted timestamp list and the value mapped to that timestamp
         self.map: Dict[str, Tuple[List[int], Dict[int, str]]] = {}
-        
 
     def set(self, key: str, value: str, timestamp: int) -> None:
         if key not in self.map:
-            ts_arr = [timestamp] # Timestamp list
-            ts_mapping = { timestamp: value } # Timestamp mapping 
+            ts_arr = [timestamp]  # Timestamp list
+            ts_mapping = {timestamp: value}  # Timestamp mapping
             self.map[key] = (ts_arr, ts_mapping)
             return
 
@@ -46,8 +46,6 @@ class TimeMap:
         # Get the timestamp index (Closest or actual)
         idx = bisect.bisect(ts_arr, timestamp)
 
-        print(idx, len(ts_arr))
-
         # If the timestamp is greater than any that exists in the store
         # Measured by the index in the timestamp list
         if idx == len(ts_arr):
@@ -63,6 +61,6 @@ class TimeMap:
         # 0th index and no value match means previous timestamp also won't exist
         if idx == 0:
             return ""
-        
+
         # The timestamp does not match, hence return the just previous one
         return ts_mapping[ts_arr[idx - 1]]
