@@ -24,6 +24,7 @@ class Solution:
                 max_length = length
                 max_length_range = (left, right)
 
+        # Double character start points
         for idx in range(len(st) - 1):
             first = st[idx]
             second = st[idx + 1]
