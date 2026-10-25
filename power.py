@@ -26,9 +26,3 @@ class Solution:
             ans *= curr
 
         return ans
-
-
-Solution().myPow(2, -3)
-
-
-print(2**-3)

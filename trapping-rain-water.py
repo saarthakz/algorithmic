@@ -52,7 +52,6 @@ class Solution:
         st = [(trap_boundaries_idx[0], 1)]
 
         for idx in range(1, len(trap_boundaries_idx)):
-            print(st)
             boundary_idx = trap_boundaries_idx[idx]
             boundary_height = heights[boundary_idx]
 
@@ -76,7 +75,6 @@ class Solution:
             else:
                 st.append((boundary_idx, -1))
 
-        print(st)
         total_water = 0
 
         for idx in range(len(st) - 1):
