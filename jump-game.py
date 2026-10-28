@@ -9,25 +9,18 @@ from typing import List
 
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        if len(nums) == 1:
-            return True
+        max_reach = 0
 
-        can_jump_marker = [0] * len(nums)
+        for idx in range(len(nums)):
+            # If our current position is further than we could ever reach, we're stuck
+            if idx > max_reach:
+                return False
 
-        idx = len(nums) - 1
-        while idx >= 0:
-            required_jump = len(nums) - 1 - idx
+            # Update how far we can go: current index + jump size
+            max_reach = max(max_reach, idx + nums[idx])
 
-            # Can directly jump, mark True and continue the backward walk
-            if nums[idx] >= required_jump:
-                can_jump_marker[idx] = 1
+            # If we can reach or pass the last index, we're done!
+            if max_reach >= len(nums) - 1:
+                return True
 
-            # Can not directly jump, let's see if a jump to another tile is possible, which would make that final jump
-            else:
-                for _idx in range(idx + 1, idx + nums[idx] + 1):
-                    if can_jump_marker[_idx]:
-                        can_jump_marker[idx] = 1
-                        break
-            idx -= 1
-
-        return can_jump_marker[0] == 1
+        return True
